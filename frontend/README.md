@@ -15,11 +15,19 @@ Navigate to the frontend directory:
 cd frontend
 ```
 
+Navigate to the Rag_system directory:
+
+```bash
+cd Rag_system
+```
+
 Install all required dependencies:
 
 ```bash
 npm install
 ```
+
+Before running the project, create a .env file based on the provided .env.example file. find the backend url by running the backend by default it is http://127.0.0.1:8000
 
 ## Running the Frontend
 

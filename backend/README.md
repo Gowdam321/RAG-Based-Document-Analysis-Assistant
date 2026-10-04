@@ -41,6 +41,8 @@ Install all required dependencies:
 pip install -r requirements.txt
 ```
 
+Before running the Backend, create a .env file based on the provided .env.example file. you need to create a groq API key for this
+
 ## Running the Backend
 
 Navigate to the application directory:
