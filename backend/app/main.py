@@ -7,6 +7,7 @@ from fastapi import (
 from pydantic import BaseModel
 
 import shutil
+import os
 from fastapi.middleware.cors import CORSMiddleware
 
 from rag.rag_pipeline import (
@@ -18,6 +19,13 @@ from rag.rag_pipeline import (
 
 
 app = FastAPI()
+
+UPLOAD_DIR = "uploads"
+
+os.makedirs(
+    UPLOAD_DIR,
+    exist_ok=True
+)
 
 app.add_middleware(
     CORSMiddleware,
@@ -49,9 +57,10 @@ async def upload_pdf(
     file: UploadFile = File(...)
 ):
 
-    file_path = (
-        f"uploads/{file.filename}"
-    )
+    file_path = os.path.join(
+    UPLOAD_DIR,
+    file.filename
+)
 
     with open(file_path, "wb") as buffer:
 
