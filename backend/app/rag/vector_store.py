@@ -10,8 +10,18 @@ model = SentenceTransformer(
     "all-MiniLM-L6-v2"
 )
 
-INDEX_PATH = "vector_db/faiss.index"
-CHUNKS_PATH = "vector_db/chunks.npy"
+VECTOR_DB_DIR = "vector_db"
+os.makedirs(VECTOR_DB_DIR, exist_ok=True)
+
+INDEX_PATH = os.path.join(
+    VECTOR_DB_DIR,
+    "faiss.index"
+)
+
+CHUNKS_PATH = os.path.join(
+    VECTOR_DB_DIR,
+    "chunks.npy"
+)
 
 
 def create_embeddings(chunks):
